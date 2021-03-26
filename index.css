@@ -1,0 +1,38 @@
+body {
+  margin: 0px;
+  width: 100%;
+  height: 100%;
+  padding: 0px;
+  box-sizing: border-box;
+}
+.container {
+  background: transparent;
+  font-size: 5px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.node {
+  margin-top: 10px;
+  height: 0;
+  overflow: hidden;
+  -webkit-transition: all 0.4s ease;
+  -moz-transition: all 0.4s ease;
+  -ms-transition: all 0.4s ease;
+  -o-transition: all 0.4s ease;
+  transition: all 0.4s ease;
+}
+.container-fluid {
+  height: 100vh;
+}
+.navbar {
+  padding: 20px;
+  background: rgb(217, 217, 248);
+  justify-content: flex-start;
+}
+#speedCombo {
+  margin-left: 5px;
+}
+#visualize {
+  margin-left: 5px;
+}
