@@ -67,8 +67,8 @@ visualize = () => {
     case "counting":
       countingSort(
         inputArr,
-        inputArr.sort()[0],
-        inputArr.sort()[inputArr.length - 1]
+        [...inputArr].sort()[0],
+        [...inputArr].sort()[inputArr.length - 1]
       );
       break;
 
