@@ -64,6 +64,7 @@ visualize = () => {
       break;
   }
 };
+
 render = (currentArray) => {
   if (!$(".node")[0]) {
     currentArray.forEach((element) => {
