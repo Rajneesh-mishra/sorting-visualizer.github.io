@@ -4,6 +4,11 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap"
+      rel="stylesheet"
+    />
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
@@ -20,50 +25,60 @@
       integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
       crossorigin="anonymous"
     ></script>
-    <script src="index.js"></script>
     <title>Sorting Visualizer</title>
     <link href="index.css" rel="stylesheet" />
   </head>
   <body>
     <section class="navbar">
-      <div class="dropdown show" id="algoCombo">
-        <a
-          class="btn btn-secondary dropdown-toggle"
-          href="#"
-          role="button"
-          id="dropdownMenuLink"
-          data-toggle="dropdown"
-          aria-haspopup="true"
-          aria-expanded="false"
-        >
-          Algorithm
-        </a>
+      <div>
+        <h3 class="logo">Sorting Visulizer</h3>
+      </div>
+      <div class="combo-container">
+        <div class="dropdown show" id="algoCombo">
+          <a
+            class="btn btn-secondary dropdown-toggle"
+            href="#"
+            role="button"
+            id="dropdownMenuLink"
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+            Algorithm
+          </a>
 
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-          <a class="dropdown-item" value="selection" href="#">Selection Sort</a>
-          <a class="dropdown-item" value="insertion" href="#">Insertion Sort</a>
-          <a class="dropdown-item" value="bubble" href="#">Bubble Sort</a>
-          <a class="dropdown-item" value="quick" href="#">Quick Sort</a>
-          <a class="dropdown-item" value="counting" href="#">Counting Sort</a>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+            <a class="dropdown-item" value="selection" href="#"
+              >Selection Sort</a
+            >
+            <a class="dropdown-item" value="insertion" href="#"
+              >Insertion Sort</a
+            >
+            <a class="dropdown-item" value="bubble" href="#">Bubble Sort</a>
+            <a class="dropdown-item" value="quick" href="#">Quick Sort</a>
+            <a class="dropdown-item" value="counting" href="#">Counting Sort</a>
+          </div>
         </div>
-      </div><div>
-      <div class="dropdown show" id="speedCombo">
-        <a
-          class="btn btn-secondary dropdown-toggle"
-          href="#"
-          role="button"
-          id="dropdownMenuLink"
-          data-toggle="dropdown"
-          aria-haspopup="true"
-          aria-expanded="false"
-        >
-          Fast
-        </a>
+        <div>
+          <div class="dropdown show" id="speedCombo">
+            <a
+              class="btn btn-secondary dropdown-toggle"
+              href="#"
+              role="button"
+              id="dropdownMenuLink"
+              data-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
+            >
+              Fast
+            </a>
 
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-          <a class="dropdown-item" value="slow" href="#">Slow</a>
-          <a class="dropdown-item" value="medium" href="#">Medium</a>
-          <a class="dropdown-item" value="fast" href="#">Fast</a>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+              <a class="dropdown-item" value="slow" href="#">Slow</a>
+              <a class="dropdown-item" value="medium" href="#">Medium</a>
+              <a class="dropdown-item" value="fast" href="#">Fast</a>
+            </div>
+          </div>
         </div>
         <button type="button" id="visualize" class="btn btn-light">
           Visualize
@@ -72,9 +87,16 @@
           New Array
         </button>
       </div>
+
+      <a class="hamburger-menu">
+        <span class="bar"></span>
+        <span class="bar"> </span>
+        <span class="bar"> </span>
+      </a>
     </section>
     <!-- <section class="container-fluid"> -->
     <div class="container"></div>
     <!-- </section> -->
   </body>
 </html>
+<script src="index.js"></script>

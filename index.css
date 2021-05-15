@@ -1,7 +1,9 @@
 body {
-  margin: 0px;
   width: 100%;
   height: 100%;
+}
+* {
+  margin: 0px;
   padding: 0px;
   box-sizing: border-box;
 }
@@ -12,8 +14,17 @@ body {
   display: flex;
   justify-content: center;
 }
+.logo {
+  font-family: "Pacifico", cursive;
+  color: white;
+}
 .node {
   margin-top: 10px;
+  width: 1%;
+  border-radius: 8px;
+  margin: 2px;
+  margin-left: 0.6%;
+  background-image: linear-gradient(315deg, #2a2a72 0%, #009ffd 74%);
   height: 0;
   overflow: hidden;
   -webkit-transition: all 0.4s ease;
@@ -22,17 +33,55 @@ body {
   -o-transition: all 0.4s ease;
   transition: all 0.4s ease;
 }
-.container-fluid {
-  height: 100vh;
+.hamburger-menu {
+  position: absolute;
+  top: 1.2rem;
+  right: 1rem;
+  width: 50px;
+  border-radius: 17px;
+  cursor: pointer;
+  height: 41px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  display: none;
+}
+.hamburger-menu:hover {
+  background-color: #ebf1f563;
+}
+.bar {
+  height: 4px;
+  border-radius: 8px;
+  background-color: rgb(249, 249, 250);
+  width: 100%;
+}
+.combo-container {
+  display: flex;
+  transition: all 100ms;
 }
 .navbar {
   padding: 20px;
   background: rgb(217, 217, 248);
-  justify-content: flex-start;
+  display: flex;
+  justify-content: space-between;
 }
-#speedCombo {
+#speedCombo,
+#visualize,
+button {
   margin-left: 5px;
 }
-#visualize {
-  margin-left: 5px;
+@media (max-width: 650px) {
+  .combo-container {
+    margin-top: 10px;
+    display: none;
+  }
+  .combo-container.active {
+    display: flex;
+    width: 100%;
+    align-items: center;
+  }
+  .hamburger-menu {
+    display: flex;
+  }
 }

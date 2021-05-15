@@ -3,13 +3,6 @@ var originalInputArray = [];
 var SPEED = 1;
 var selectedAlgorithm = "none";
 $(document).ready(function () {
-  if (
-    /Android|webOS|iPhone|iPad|Mac|Macintosh|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
-      navigator.userAgent
-    )
-  ) {
-    $("html").css("font-size", "11px");
-  }
   render(originalInputArray);
   $("#algoCombo > .dropdown-menu > .dropdown-item").click((e) => {
     selectedAlgorithm = e.currentTarget.getAttribute("value");
@@ -35,17 +28,9 @@ $(document).ready(function () {
 randomArrayGenerator = () => {
   originalInputArray = [];
   let size;
-  if (
-    /Android|webOS|iPhone|iPad|Mac|Macintosh|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
-      navigator.userAgent
-    )
-  ) {
-    size = 40;
-  } else {
-    size = 100;
-  }
+  size = 40;
   for (let i = 0; i < size; i++) {
-    originalInputArray.push(Math.floor(Math.random() * 100));
+    originalInputArray.push(Math.floor(Math.random() * 95));
   }
 };
 randomArrayGenerator();
@@ -53,16 +38,16 @@ visualize = () => {
   const inputArr = [...originalInputArray];
   switch (selectedAlgorithm) {
     case "selection":
-      selectionSort(inputArr, SPEED);
+      selectionSort(inputArr);
       break;
     case "insertion":
-      insertionSort(inputArr, SPEED);
+      insertionSort(inputArr);
       break;
     case "quick":
       quickSort(inputArr, 0, inputArr.length - 1);
       break;
     case "bubble":
-      bubbleSort(inputArr, SPEED);
+      bubbleSort(inputArr);
       break;
     case "counting":
       countingSort(
@@ -83,13 +68,14 @@ render = (currentArray) => {
   if (!$(".node")[0]) {
     currentArray.forEach((element) => {
       $(".container").append(
-        `<div class="node" style="height:${element}em;width:3px;margin:2px;background-image:linear-gradient(315deg, #2a2a72 0%, #009ffd 74%)"> </div>`
+        `<span class="node" title=${element} style="height:${element}em;"> </span>`
       );
     });
   } else {
     const nodes = $(".node");
     for (i in currentArray) {
       nodes[i].style.height = currentArray[i] + "em";
+      nodes[i].title = currentArray[i];
       if (currentElement == i) {
         nodes[i].style.background = "blue";
       } else {
@@ -101,7 +87,7 @@ render = (currentArray) => {
     }
   }
 };
-bubbleSort = async (inputArr, speed) => {
+bubbleSort = async (inputArr) => {
   let len = inputArr.length;
   let flag = true;
   for (let i = 0; i < len; i++) {
@@ -115,7 +101,7 @@ bubbleSort = async (inputArr, speed) => {
       }
       currentElement = j;
       render(inputArr);
-      await wait(speed);
+      await wait();
       debugger;
     }
     if (!flag) {
@@ -148,7 +134,7 @@ selectionSort = async (arr, speed) => {
 
   return arr;
 };
-insertionSort = async (inputArr, speed) => {
+insertionSort = async (inputArr) => {
   let n = inputArr.length;
   for (let i = 1; i < n; i++) {
     // Choosing the first element in our unsorted subarray
@@ -158,7 +144,7 @@ insertionSort = async (inputArr, speed) => {
     while (j > -1 && current < inputArr[j]) {
       inputArr[j + 1] = inputArr[j];
       j--;
-      await wait(speed);
+      await wait();
       currentElement = j;
       render(inputArr);
     }
@@ -168,12 +154,12 @@ insertionSort = async (inputArr, speed) => {
   $("#newArray").show();
 };
 
-wait = (ms) => {
-  if (ms == 0) return;
+wait = () => {
+  if (SPEED == 0) return;
   return new Promise((resolve) => {
     setTimeout(() => {
       resolve("");
-    }, ms);
+    }, SPEED);
   });
 };
 
@@ -251,3 +237,15 @@ countingSort = async (arr, min, max) => {
   $("#newArray").show();
 };
 //-------------------------------------------------------------------
+
+button = document.getElementsByClassName("hamburger-menu")[0];
+toggleLink = document.getElementsByClassName("combo-container")[0];
+button.addEventListener("click", () => {
+  toggleLink.classList.toggle("active");
+});
+
+bar = document.getElementsByClassName("container")[0];
+
+bar.addEventListener("mouseover", (a) => {
+  if (a.target.className == "node") debugger;
+});
